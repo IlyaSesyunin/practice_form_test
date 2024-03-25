@@ -22,14 +22,18 @@ def test_correct_full_form():
     browser.element('#react-select-4-input').type('karn').press_enter()
     browser.element('#submit').click()
 
-    browser.element('.modal-title.h4').should(have.text('Thanks for submitting the form'))
-    browser.element('table>tbody>tr:nth-child(1)>td:nth-child(2)').should(have.text('Ivan Ivanov'))
-    browser.element('table>tbody>tr:nth-child(2)>td:nth-child(2)').should(have.text('ivan.ivanov@gmail.com'))
-    browser.element('table>tbody>tr:nth-child(3)>td:nth-child(2)').should(have.text('Male'))
-    browser.element('table>tbody>tr:nth-child(4)>td:nth-child(2)').should(have.text('1234567890'))
-    browser.element('table>tbody>tr:nth-child(5)>td:nth-child(2)').should(have.text('01 August,1995'))
-    browser.element('table>tbody>tr:nth-child(6)>td:nth-child(2)').should(have.text('Computer Science'))
-    browser.element('table>tbody>tr:nth-child(7)>td:nth-child(2)').should(have.text('Music, Reading'))
-    browser.element('table>tbody>tr:nth-child(8)>td:nth-child(2)').should(have.text('image.png'))
-    browser.element('table>tbody>tr:nth-child(9)>td:nth-child(2)').should(have.text('address'))
-    browser.element('table>tbody>tr:nth-child(10)>td:nth-child(2)').should(have.text('Haryana Karnal'))
+    browser.element('.modal-title').should(have.text('Thanks for submitting the form'))
+    browser.element('.table').all('td').even.should(
+        have.exact_texts(
+            'Ivan Ivanov',
+            'ivan.ivanov@gmail.com',
+            'Male',
+            '1234567890',
+            '01 August,1995',
+            'Computer Science',
+            'Music, Reading',
+            'image.png',
+            'address',
+            'Haryana Karnal'
+        )
+    )
