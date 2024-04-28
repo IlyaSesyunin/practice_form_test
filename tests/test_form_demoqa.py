@@ -1,7 +1,6 @@
 from demoqa_tests.model.pages.registration_page import registration_page
 
 
-
 def test_correct_full_form():
     registration_page.open()
     registration_page.fill_first_name('Ivan')
