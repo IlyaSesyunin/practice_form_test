@@ -42,7 +42,7 @@ class RegistrationPage:
             user.phone_number,
             f'{user.day} {user.month},{user.year}',
             user.subjects,
-            'Sports',
+            user.hobbies,
             user.photo,
             user.address,
             f'{user.state} {user.city}'
